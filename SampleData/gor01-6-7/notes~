@@ -1,0 +1,17 @@
+Session top-dir		filename			behavior	fam	duration (sec)
+
+1455	gor01-6-7	2006-6-7_11-26-53	linearOne	10	2692.247
+1457	gor01-6-7	2006-6-7_16-40-19	linearTwo	10	2587.808
+
+
+87637911 in res.1 for 11-26-53
+
+NeuraLynx (32,552 Hz)
+
+Confirmed! .res file has sample number (sampled at 32,552 Hz)
+
+wideband data in .dat file (not included)
+
+.eeg file contains LFP: 1252 Hz downsampled data below 625 Hz
+
+.whl seems to be sampled at around 44 Hz, but I need to understand the official relationship...
