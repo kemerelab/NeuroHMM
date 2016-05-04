@@ -27,12 +27,12 @@ def extract_subsequences_from_binned_spikes(binned_spikes, bins):
 
 def get_sorted_order_from_transmat(A, start_state = 0):
     
-    new_order = [start_state]
     num_states = A.shape[0]
-    rem_states = np.arange(0,start_state).tolist()
-    rem_states.extend(np.arange(start_state+1,num_states).tolist())
-    cs = start_state
-
+    cs = np.min([start_state, num_states-1])
+    new_order = [cs]
+    rem_states = np.arange(0,cs).tolist()
+    rem_states.extend(np.arange(cs+1,num_states).tolist())
+    
     for ii in np.arange(0,num_states-1):
         nstilde = np.argmax(A[cs,rem_states])
         ns = rem_states[nstilde]
