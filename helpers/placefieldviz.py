@@ -25,6 +25,23 @@ def extract_subsequences_from_binned_spikes(binned_spikes, bins):
     
     return binned
 
+def get_sorted_order_from_transmat(A, start_state = 0):
+    
+    new_order = [start_state]
+    num_states = A.shape[0]
+    rem_states = np.arange(0,start_state).tolist()
+    rem_states.extend(np.arange(start_state+1,num_states).tolist())
+    cs = start_state
+
+    for ii in np.arange(0,num_states-1):
+        nstilde = np.argmax(A[cs,rem_states])
+        ns = rem_states[nstilde]
+        rem_states.remove(ns)
+        cs = ns
+        new_order.append(cs)
+        
+    return new_order, A[:, new_order][new_order]
+
 def hmmplacefieldposviz(spikes, speed, posdf, num_states=35, ds=0.0625, vth=8, normalize=False, verbose=False, experiment='both'):
     binned_spikes = klab.bin_spikes(spikes.data, ds=ds, fs=spikes.samprate, verbose=verbose)
 
@@ -78,4 +95,6 @@ def hmmplacefieldposviz(spikes, speed, posdf, num_states=35, ds=0.0625, vth=8, n
     if normalize:
         state_pos = state_pos/np.transpose(np.tile(state_pos.sum(axis=1),[state_pos.shape[1],1]))
 
-    return state_pos, peakorder
+    stateorder, Anew = get_sorted_order_from_transmat(myhmm.transmat_, start_state = 17)
+
+    return state_pos, peakorder, stateorder
