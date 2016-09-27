@@ -23,7 +23,7 @@ def get_num_electrodes(sessiondir):
         raise ValueError('number of electrodes (shanks) could not be established...')
 
 #datatype = ['spikes', 'eeg', 'pos', '?']
-def load_data(fileroot, animal='gor01', year=2006, month=6, day=7, session='11-26-53', datatype='spikes', channels='all', fs=32552,starttime=0, verbose=False):
+def load_data(fileroot, animal='gor01', year=2006, month=6, day=7, session='11-26-53', datatype='spikes', channels='all', fs=32552,starttime=0, verbose=False, includeUnsortedSpikes=False):
     
     fileroot = os.path.normpath(fileroot)
     anim_prefix = "{}-{}-{}".format(animal,month,day)
@@ -31,6 +31,9 @@ def load_data(fileroot, animal='gor01', year=2006, month=6, day=7, session='11-2
     sessiondir = "{}/{}/{}".format(fileroot, anim_prefix, session_prefix) 
 
     if (datatype=='spikes'):
+        # NOTE: st_array[0] always corresponds to unsortable spikes (not mechanical noise). However, when includeUnsortedSpikes==True, then it gets populated
+        #       with spike times; else, it just remains an empty list []
+        
         #filename = "{}/{}/{}/{}.clu.1".format(fileroot, anim_prefix, session_prefix, session_prefix) 
         filename = "{}/{}/{}/{}".format(fileroot, anim_prefix, session_prefix, session_prefix)
         #print(filename)
@@ -46,19 +49,29 @@ def load_data(fileroot, animal='gor01', year=2006, month=6, day=7, session='11-2
             eudf = pd.read_table( filename + '.clu.' + str(ele + 1), header=None, names='u' ) # read unit numbers within electrode
             tsdf = pd.read_table( filename + '.res.' + str(ele + 1), header=None, names='t' ) # read sample numbers for spikes
             max_units = eudf.u.values[0]
+
             eu = eudf.u.values[1:]
             ts = tsdf.t.values
             # discard units labeled as '0' or '1', as these correspond to mechanical noise and unsortable units
             ts = ts[eu!=0]
             eu = eu[eu!=0]
-            ts = ts[eu!=1]
-            eu = eu[eu!=1]
+            if not includeUnsortedSpikes:
+                ts = ts[eu!=1]
+                eu = eu[eu!=1]
             
             for uu in np.arange(max_units-2):
                 st_array.append(ts[eu==uu+2])
 
+            if includeUnsortedSpikes:
+                st_array[0] = np.append(st_array[0], ts[eu==1])   # unit 0 now corresponds to unsortable spikes
+
         if verbose:
             print('Spike times (in sample numbers) for a total of {} units were read successfully...'.format(len(st_array)))
+
+        # make sure that spike times are sorted! (this is not true for unit 0 of the hc-3 dataset, for example):
+        for unit, spikes in enumerate(st_array):
+            st_array[unit] = np.sort(spikes)
+
         spikes = Map()
         spikes['data'] = st_array
         spikes['num_electrodes'] = num_elec

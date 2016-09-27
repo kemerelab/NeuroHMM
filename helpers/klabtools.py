@@ -604,3 +604,5 @@ def split(dataobj, datatype, changept, verbose=False):
 
     else:
         raise ValueError('datatype is not handled')
+
+        
