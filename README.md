@@ -5,7 +5,7 @@ Of particular interest are the following:
  * **StateClustering**.ipynb—validation that HMMs can learn (robustly) place fields in the absence of positional data; several follow-up analyses showing how behavioral states, different contexts, etc. are captured and clustered in the inferred model states (in progress, first half complete)
  * **StateOrdering**.ipynb—post-ordering hidden states for interpretation and evaulation (complete)
  * **ModelSelection**.ipynb—sensitivity analysis and discussion on selecting appropriate model parameters (complete)
- * **KLscore**.ipynb—preliminary results and proof-of-concept for a Kullback-Leibler based sequence score (almost complete)
+ * [**KLscore**.ipynb](../blob/master/KLscore.ipynb)b—preliminary results and proof-of-concept for a Kullback-Leibler based sequence score (almost complete)
  * **BootstrappingHMMs**.ipynb—using synthesized data to augment our training set (incomplete)
  * **OnlineScoring**.ipynb—using HMMs for the analysis of continuous chronic recordings (incomplete)
  
