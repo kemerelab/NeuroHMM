@@ -11,14 +11,13 @@ All the results shown in these notebooks can be (re-)generated using the accompa
 The easiest way to use this repository is to take a look at the various Jupyter notebooks. These are all the files ending with the `.ipynb` extensions. These files can be rendered directly in github, so you can look at the code, analysis, and results, all in your browser, without the need to install any additional software, or to execute any code.
 
 The notebooks of particular interest, and in a loosley logical order, are briefly described below.
- * [**StateClustering**.ipynb](../master/StateClustering.ipynb)—validation that HMMs can learn (robustly) place fields in the absence of positional data; several follow-up analyses showing how behavioral states, different contexts, etc. are captured and clustered in the inferred model states (in progress, first half complete)
- * [**StateOrdering**.ipynb](../master/StateOrdering.ipynb)—post-ordering hidden states for interpretation and evaulation (complete)
- * [**ModelSelection**.ipynb](../master/ModelSelection.ipynb)—sensitivity analysis and discussion on selecting appropriate model parameters (complete)
- * [**KLscore**.ipynb](../bmaster/KLscore.ipynb)—preliminary results and proof-of-concept for a Kullback-Leibler based sequence score (almost complete)
- * [**BootstrappingHMMs**.ipynb](../master/BootstrappingHMMs.ipynb)—using synthesized data to augment our training set (incomplete)
- * [**OnlineScoring**.ipynb](../master/OnlineScoring.ipynb)—using HMMs for the analysis of continuous chronic recordings (incomplete)
+ * [**StateClustering**.ipynb](../master/StateClustering.ipynb)—demonstration that HMMs can (robustly) learn place fields in the absence of positional data; several follow-up analyses showing how behavioral states, different contexts, etc. are captured and clustered in the inferred model states (status: in progress, first half complete)
+ * [**StateOrdering**.ipynb](../master/StateOrdering.ipynb)—post-ordering hidden states for interpretation and evaulation (status: complete)
+ * [**ModelSelection**.ipynb](../master/ModelSelection.ipynb)—sensitivity analysis and discussion on selecting appropriate model parameters (status: complete)
+ * [**KLscore**.ipynb](../bmaster/KLscore.ipynb)—preliminary results and proof-of-concept for a Kullback-Leibler based sequence score (status: almost complete)
+ * [**BootstrappingHMMs**.ipynb](../master/BootstrappingHMMs.ipynb)—using synthesized data to augment our training set (status: not yet started)
+ * [**OnlineScoring**.ipynb](../master/OnlineScoring.ipynb)—using HMMs for the analysis of continuous chronic recordings (status: incomplete)
  
-
 Of course, you can also clone or download this repository, which will allow you to modify the code to see the effect of changing parameters, and so on. For this, you would need Python 3, and several additional packages. Following any god Python tutorial should help you get up and running pretty fast.
 
 ## Where to get the data
