@@ -1,12 +1,12 @@
 # NeuroHMM—Analysis of neural data using hidden Markov models.
 This repository contains some selected example notebooks and discussions for the analysis of neural data using hidden Markov models on publically accessible data from [crcns.org](https://crcns.org/data-sets/hc/hc-3/about-hc-3).
 
-## Current and future developments: nelpy
+# Current and future developments: nelpy
 All the results shown in these notebooks can be (re-)generated using the accompanying code in this repository, along with publically accessible data from the hc-3 dataset on [crcns.org](crcns.org). However, active development has shifted away from this repository, and we are currently actively developing [nelpy](https://github.com/eackermann/nelpy) to make it easier to do common (yet complex) analysis tasks with neuroelectrophysiology data.
 
-## Overview
+# Overview
 
-### How to use this repository
+## How to use this repository
 
 The easiest way to use this repository is to take a look at the various Jupyter notebooks. These are all the files ending with the `.ipynb` extensions. These files can be rendered directly in github, so you can look at the code, analysis, and results, all in your browser, without the need to install any additional software, or to execute any code.
 
@@ -21,9 +21,6 @@ The notebooks of particular interest, and in a loosley logical order, are briefl
 
 Of course, you can also clone or download this repository, which will allow you to modify the code to see the effect of changing parameters, and so on. For this, you would need Python 3, and several additional packages. Following any god Python tutorial should help you get up and running pretty fast.
 
-### Where to get the data
+## Where to get the data
 
 The data used here is publically available free-of-charge at [http://crcns.org](http://crcns.org), the data sharing website funded by the Collaborative Research in Computational Neuroscience (CRCNS) program. More specifically we have used dataset `hc-3` here, and from that dataset, this repository shows results for animal `gor01`.
-
-Task description
-=========================
