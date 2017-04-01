@@ -1,7 +1,7 @@
 # NeuroHMM—Analysis of neural data using hidden Markov models.
 This repository contains some selected example notebooks and discussions for the analysis of neural data using hidden Markov models on publically accessible data from [crcns.org](https://crcns.org/data-sets/hc/hc-3/about-hc-3).
 
-# Current and future developments: nelpy
+# Current and future developments: [nelpy](https://github.com/eackermann/nelpy)
 All the results shown in these notebooks can be (re-)generated using the accompanying code in this repository, along with publically accessible data from the hc-3 dataset on [crcns.org](crcns.org). However, active development has shifted away from this repository, and we are currently actively developing [nelpy](https://github.com/eackermann/nelpy) to make it easier to do common (yet complex) analysis tasks with neuroelectrophysiology data.
 
 # Overview
