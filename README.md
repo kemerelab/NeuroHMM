@@ -24,3 +24,11 @@ Of course, you can also clone or download this repository, which will allow you 
 ## Where to get the data
 
 The data used here is publically available free-of-charge at [http://crcns.org](http://crcns.org), the data sharing website funded by the Collaborative Research in Computational Neuroscience (CRCNS) program. More specifically we have used dataset `hc-3` here, and from that dataset, this repository shows results for animal `gor01`.
+
+## Acknowledgements
+Developed by members of the [Kemere Lab](http://rnel.rice.edu) at Rice University. This work
+was supported by the National Science Foundation (CBET-1351692 and IOS-1550994) and the
+Human Frontiers Science Program (RGY0088). Any opinions, findings, and conclusions or
+recommendations expressed in this material are those of the author(s) and do not necessarily
+reflect the views of the National Science Foundation.
+
